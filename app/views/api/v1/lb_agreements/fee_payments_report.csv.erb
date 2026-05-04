@@ -1,0 +1,28 @@
+<%- headers = ['Лицевой счет', 'Телефон ЛК', 'Телефон Билллинг', 'Доставка счета', 'Адрес', 'Статус ЛК', 'Начисление', 'Оплаты', 'Способ оплаты', 'Баланс'] -%>
+<%= CSV.generate_line headers -%>
+<%- @lb_agreements.each do |a| -%>
+<%-
+phones_lk = a.lk_addresses.map{|q| q.abonent.try(:phone)}.compact.uniq
+phones = [a.lb_account.phone.presence, a.lb_account.mobile.presence].compact.uniq
+
+payments = a.lb_payments.joins("INNER JOIN pay_classes ON pay_classes.class_id = payments.class_id")
+                        .select('record_id as id, pay_classes.name as class_name, amount')
+                        .where('payments.pay_date BETWEEN ? AND ?', @month + 1.month, (@month + 1.month).end_of_month)
+
+pay_classes =  payments.present? ? payments.map{|q| q.class_name}.join(', ') : ''
+pay_sum = payments.present? ? payments.to_a.sum{|q| q.amount} : 0
+-%>
+<%= raw CSV.generate_line([
+    a.number,
+    # a.lb_account.name,
+    phones_lk.shift,
+    [phones_lk + phones].join("; "),
+    a.lb_account.bill_delivery,
+    a.lb_account.address_connect,
+    a.lk_status,
+    a.lb_teleset_charges[0].try(:fee),
+    pay_sum,
+    pay_classes,
+    a.balance
+    ]) -%>
+<%- end -%>

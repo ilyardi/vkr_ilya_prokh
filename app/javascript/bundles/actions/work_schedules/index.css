@@ -1,0 +1,16 @@
+.working {
+    background-color: lightgreen !important;
+}
+
+.schedule-cell {
+    padding: 5px !important;
+    width: 40px;
+    justify-content: center;
+    text-align: center;
+}
+
+.weekend {
+    padding: 5px !important;
+    background-color: lightgray;
+    width: 40px;
+}

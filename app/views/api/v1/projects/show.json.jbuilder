@@ -1,0 +1,1 @@
+json.project @project, partial: 'show', as: :project

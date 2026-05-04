@@ -1,0 +1,125 @@
+version: '3.5'
+services:
+  db:
+    image: postgres:10.2
+    environment:
+      &db_envs
+      POSTGRES_USER: lbackend
+      POSTGRES_DB: lbackend
+    ports:
+      - 5432:5432
+    volumes:
+      - ./tmp/pgdata10:/var/lib/postgresql/data:cached
+    networks:
+      localnet:
+
+
+  web:
+    build: .
+    # command: foreman start -f Procfile.dev
+    environment:
+      &web_envs
+      <<: *db_envs
+      POSTGRES_HOST: db.local
+      LANBILLING_IP:
+      LANBILLING_LOGIN:
+      LANBILLING_PASSWORD:
+      LBMYSQL_USER: billing
+      LBMYSQL_PASSWORD: password
+      LBMYSQL_HOST: mysql.local
+      LBMYSQL_DB: billing
+      REDIS_HOST: redis.local
+      REDIS_PORT: 6379
+      API_ACCESS_KEY: internal_access_key
+      ANYCABLE_REDIS_URL: redis://redis.local:6379/1
+      ANYCABLE_RPC_HOST: rpc.local:50051
+      CALLGATE_URL: https://vp.voicepassword.ru
+      CALLGATE_APIKEY: 583fa32deba9cf61dc8e874f80bdb826
+      # MEMCACHE_SERVERS: 'memcached.local'
+      # DISABLE_LOGRAGE: 'false'
+    ports:
+      - 3000:80
+    links:
+      - db:db.local
+      - redis:redis.local
+      # - rpc:rpc.local
+      # - mysql:mysql.local
+      # - memcached:memcached.local
+    ulimits:
+      nofile:
+        soft: 10240
+        hard: 10240
+    volumes:
+      - .:/var/www/lbackend/current:cached
+      - ./tmp/root:/root
+      - /Users/vlad/.ssh/vlad_id_rsa:/root/.ssh/id_rsa
+    networks:
+      localnet:
+
+
+  redis:
+    image: redis:3.2.9
+    networks:
+      localnet:
+
+
+  rpc:
+    build: .
+    command: bundle exec anycable
+    environment:
+      <<: *web_envs
+      ANYCABLE_RPC_HOST: 0.0.0.0:50051
+    links:
+      - db:db.local
+      - redis:redis.local
+    volumes:
+      - .:/var/www/lbackend/current:cached
+    networks:
+      localnet:
+
+
+  ws:
+    image: anycable/anycable-go:1.1.2
+    environment:
+      REDIS_URL: redis://redis.local:6379/1
+      ANYCABLE_PORT: 8080
+      ANYCABLE_HOST: 0.0.0.0
+      ANYCABLE_REDIS_URL: redis://redis.local:6379/1
+      ANYCABLE_RPC_HOST: rpc.local:50051
+      ANYCABLE_LOG_FILE: /log/anycable.log
+      ANYCABLE_LOG_LEVEL: debug
+      ANYCABLE_LOG_GRPC: t
+      ANYCABLE_DEBUG: 1
+    volumes:
+      - ./log:/log
+    ports:
+      - 8080:8080
+    links:
+      - rpc:rpc.local
+      - redis:redis.local
+    networks:
+      localnet:
+
+
+  nginx:
+    image: nginx
+    volumes:
+      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./config/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./public:/var/www/lbackend/current/public:ro
+      - ./public_site:/var/www/teleset.plus/current/public:ro
+      - ./tmp/nginx_log:/var/log/nginx/
+    ports:
+      - "80:80"
+    links:
+      - web:web.local
+    networks:
+      localnet:
+
+
+networks:
+  localnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24

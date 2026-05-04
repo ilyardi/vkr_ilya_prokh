@@ -1,0 +1,19 @@
+ru:
+  site:
+    base:
+      forbidden: Доступ закрыт
+    v1:
+      base:
+        unauthorized: "Пользователь не авторизован"
+      addresses_controller:
+        create:
+          not_found: "Адрес не найден"
+          exist: "Адрес уже добавлен"
+          unauthorized: "Неверный логин/пароль"
+    v4:
+      base:
+        unauthorized: "Пользователь не авторизован"
+      sessions:
+        unauthorized: "Неправильный логин или пароль"
+        unauthorized_phone: "Неправильный телефон"
+        incorrect_code: "Неправильный код"

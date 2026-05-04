@@ -1,0 +1,33 @@
+.ui-selected {
+  background-color: blue;
+}
+
+.time-slots-row {
+  height: auto;
+}
+
+.time-slot-cell {
+  padding: 5px !important;
+  line-height: 18px;
+  box-sizing: border-box;
+}
+
+.blocked {
+  background-color: gray !important
+}
+
+.time-slot-cell:hover {
+  background-color: lightsteelblue
+}
+
+.time-slot-cell>.ant-card {
+  text-align: left;
+}
+
+.ant-table-cell-row-hover {
+  background-color: rgb(230, 230, 230) !important
+}
+
+.selected_slot {
+  background-color: darkseagreen !important
+}

@@ -1,0 +1,203 @@
+<% helper = ActiveSupport::NumberHelper %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8" />
+    <TITLE>Акт сверки</TITLE>
+    <META NAME="AUTHOR" CONTENT="Vladislav" />
+
+    <STYLE TYPE="text/css">
+      @page {
+        size: 21cm 29.7cm;
+        margin: 0cm;
+      }
+      body {
+        font-family: "Arial", serif;
+        font-size: 14px;
+        width
+      }
+      table {
+        border-collapse: collapse;
+      }
+      td, th {
+        border: 1px solid black;
+        text-align: center;
+        padding: 4px;
+      }
+      .container {
+        position: relative;
+        /*border: 1px solid red;*/
+        width: 19.5cm;
+        margin: 0 auto;
+        background-size: 21cm 29.7cm;
+        background-repeat: no-repeat;
+        min-height: 29.7cm;
+        /* border: 1px solid black; */
+      }
+      .header {
+        width: 100%
+      }
+      .footer {
+        display: flex;
+      }
+      .parties {
+        width: 50%;
+      }
+      .parties_name {
+        height: 30px;
+      }
+      .h_date {
+        width: 8%;
+        font-weight: 400;
+      }
+      .h_docs {
+        width: 22%;
+        font-weight: 400;
+      }
+      .h_debit {
+        width: 10%;
+        font-weight: 400;
+      }
+      .h_credit {
+        width: 10%;
+        font-weight: 400;
+      }
+      .price_item {
+        text-align: right;
+      }
+      .data_item {
+        text-align: left;
+        font-weight: 400;
+      }
+      #doc_name {
+        text-align: center;
+      }
+      #doc_details {
+        text-align: center;
+      }
+      #doc_description {
+        text-align: justify;
+        font-size: 12px;
+      }
+      #doc_data {
+        width: 100%;
+        font-size: 12px;
+      }
+    </STYLE>
+  </HEAD>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2 id="doc_name">Акт сверки</h2>
+        <p id="doc_details">
+          взаимных расчетов за период: <%= I18n.l(@st_date, :format => "%d %B %Y г.")%> - <%= I18n.l(@end_date, :format => "%d %B %Y г.")%><br/>
+          между ООО "ТЕЛЕСЕТЬ" (ИНН 5010050793)<br/>
+          и <%= "#{@lb_account.name} (ИНН #{@lb_account.inn})"%><br/>
+          по договору <%= @lb_agreement.number%> от <%= Time.parse("#{@lb_agreement.date}").strftime("%d.%m.%Y")%><br/>
+        </p>
+        <p id="doc_description">
+          Мы, нижеподписавшиеся, Генеральный директор ООО "ТЕЛЕСЕТЬ" Клетов Дмитрий Алексеевич, с одной стороны, и _____________ <%= @lb_account.name%>
+          _______________________, с другой стороны, составили настоящий акт сверки в том, что состояние взаимных расчетов по данным учетам следующее:
+        </p>
+      </div>
+      <div class="body">
+        <table id="doc_data">
+          <thead>
+            <tr>
+              <th class="data_item" colspan="4">По данным ООО "ТЕЛЕСЕТЬ", руб.</th>
+              <th class="data_item" colspan="4">По данным <%= @lb_account.name%>, руб.</th>
+            </tr>
+            <tr>
+              <th class="h_date">Дата</th>
+              <th class="h_docs">Документы</th>
+              <th class="h_debit">Дебит</th>
+              <th class="h_credit">Кредит</th>
+              <th class="h_date">Дата</th>
+              <th class="h_docs">Документы</th>
+              <th class="h_debit">Дебит</th>
+              <th class="h_credit">Кредит</th>
+            </tr>
+            <tr>
+              <th colspan="2" class="data_item"><b>Сальдо начальное</b></th>
+              <th class="price_item"><b><%= (@saldo_before < 0) ? helper.number_to_currency(@saldo_before.abs,unit: '', separator: ",", delimiter: " ") : ""%></b></th>
+              <th class="price_item"><b><%= (@saldo_before < 0) ? "" : helper.number_to_currency(@saldo_before.abs,unit: '', separator: ",", delimiter: " ")%></b></th>
+              <th colspan="2" class="data_item"><b>Сальдо начальное</b></th>
+              <th class="price_item"><b><%= (@saldo_before < 0) ? "" : helper.number_to_currency(@saldo_before.abs,unit: '', separator: ",", delimiter: " ")%></b></b></th>
+              <th class="price_item"><b><%= (@saldo_before < 0) ? helper.number_to_currency(@saldo_before.abs,unit: '', separator: ",", delimiter: " ") : ""%></b></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @result.each do |row| %>
+            <tr>
+              <td class="data_item">
+                <%= row[1]=='Продажа' ? (Time.parse("#{row[0]}").end_of_month).strftime("%d.%m.%y") : Time.parse("#{row[0]}").strftime("%d.%m.%y")%>
+              </td>
+              <td class="data_item"><%= row[1]%></td>
+              <td class="price_item"><%= helper.number_to_currency(row[3],unit: '', separator: ",", delimiter: " ")%></td>
+              <td class="price_item"><%= helper.number_to_currency(row[2],unit: '', separator: ",", delimiter: " ")%></td>
+              <td class="data_item">
+                <%= row[1]=='Продажа' ? (Time.parse("#{row[0]}").end_of_month).strftime("%d.%m.%y") : Time.parse("#{row[0]}").strftime("%d.%m.%y")%>
+              </td>
+              <td class="data_item"><%= row[1]%></td>
+              <td class="price_item"><%= helper.number_to_currency(row[2],unit: '', separator: ",", delimiter: " ")%></td>
+              <td class="price_item"><%= helper.number_to_currency(row[3],unit: '', separator: ",", delimiter: " ")%></td>
+            </tr>
+          <%end%>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2" class="data_item"><b>Обороты за период</b></td>
+              <td class="price_item"><b><%= helper.number_to_currency(@credit,unit: '', separator: ",", delimiter: " ")%></b></td>
+              <td class="price_item"><b><%= helper.number_to_currency(@debit,unit: '', separator: ",", delimiter: " ")%></b></td>
+              <td colspan="2" class="data_item"><b>Обороты за период</b></td>
+              <td class="price_item"><b><%= helper.number_to_currency(@debit,unit: '', separator: ",", delimiter: " ")%></b></td>
+              <td class="price_item"><b><%= helper.number_to_currency(@credit,unit: '', separator: ",", delimiter: " ")%></b></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="data_item"><b>Сальдо конечное</b></td>
+              <td class="price_item"><b><%= (@saldo_current < 0) ? helper.number_to_currency(@saldo_current.abs,unit: '', separator: ",", delimiter: " ") : ""%></b></td>
+              <td class="price_item"><b><%= (@saldo_current < 0) ? "" : helper.number_to_currency(@saldo_current.abs,unit: '', separator: ",", delimiter: " ")%></b></td>
+              <td colspan="2" class="data_item"><b>Сальдо конечное</b></td>
+              <td class="price_item"><b><%= (@saldo_current < 0) ? "" : helper.number_to_currency(@saldo_current.abs,unit: '', separator: ",", delimiter: " ")%></b></td>
+              <td class="price_item"><b><%= (@saldo_current < 0) ? helper.number_to_currency(@saldo_current.abs,unit: '', separator: ",", delimiter: " ") : ""%></b></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="footer">
+        <div class='parties'>
+          <div style="padding-right: 20px">
+            <p class="parties_name">По данным ООО "Телесеть"</p>
+            <% if @saldo_current == 0 %>
+              <p class="parties_name">на <%= Time.parse("#{@result.last[0]}").strftime("%d.%m.%y")%> задолженность отсутствует.</p>
+            <% else %>
+              <p style="height: 50px">на
+              <%= Time.parse("#{@result.last[0]}").end_of_month.strftime("%d.%m.%y")%> задолженность в пользу
+              <%= @saldo_current > 0 ? @lb_account.name : 'ООО "Телесеть"'%>
+              <nobr><%= helper.number_to_currency(@saldo_current.abs, separator: ",", delimiter: " ")%></nobr>
+              </p>
+            <% end %>
+            <p class="parties_name">От ООО "Телесеть"</p>
+          </div>
+          <div>
+            <p>Генеральный деректор</p>
+            <p>_______________________________(Клетов Д. А.)</p>
+            <p>М.П.</p>
+          </div>
+        </div>
+        <div class='parties'>
+          <div>
+            <p class="parties_name">По данным <%= @lb_account.name%></p>
+            <p style="height: 50px"></p>
+            <p class="parties_name">От <%= @lb_account.name%></p>
+          </div>
+          <div>
+            <p>_____________</p>
+            <p>_______________________________(______________)</p>
+            <p>М.П.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</HTML>

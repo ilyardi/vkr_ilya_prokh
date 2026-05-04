@@ -1,0 +1,1 @@
+json.notification_rule @notification_rule

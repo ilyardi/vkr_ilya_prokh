@@ -1,0 +1,3 @@
+json.working_time_by_connect_engineers @working_time_by_connect_engineers
+json.working_time_by_service_engineers @working_time_by_service_engineers
+json.working_time_by_technical_engineers @working_time_by_technical_engineers

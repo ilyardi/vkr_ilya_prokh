@@ -1,0 +1,10 @@
+.summary_cell {
+    border-color: black !important;
+    text-align: center;
+    font-weight: bold;
+    padding: 2px !important;
+}
+
+.summary_cell_record_name {
+    text-align: right;
+}

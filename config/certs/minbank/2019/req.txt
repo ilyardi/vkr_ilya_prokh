@@ -1,0 +1,62 @@
+Certificate Request:
+    Data:
+        Version: 0 (0x0)
+        Subject: CN=E0060035, OU=teleset.plus, O=Teleset ltd, L=DUBNA, C=RU
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+            RSA Public Key: (2048 bit)
+                Modulus (2048 bit):
+                    00:e3:40:5e:46:27:cf:75:d4:8f:e8:e5:69:cd:fc:
+                    07:fc:7f:88:7b:3c:80:2b:32:dc:0d:86:fc:50:5e:
+                    23:0a:ed:a4:17:7c:5a:e0:a4:63:18:8a:90:d0:e5:
+                    39:08:00:79:40:94:5a:65:99:f3:fe:48:ff:95:47:
+                    b0:97:35:25:73:78:d0:5e:05:99:3a:96:68:56:e9:
+                    0a:2b:e7:92:48:a3:3b:bc:ac:4d:ac:4e:8e:45:06:
+                    40:01:4b:00:26:d3:ed:ba:34:4d:a2:95:77:6a:c7:
+                    dd:70:28:18:bc:b5:f5:e1:98:31:ec:d8:ce:7c:c2:
+                    94:09:b5:de:ab:6c:f1:db:25:6a:61:2e:a8:80:1f:
+                    99:1d:81:fe:5a:e2:11:69:66:fa:71:23:66:8a:eb:
+                    a3:f7:9a:0b:93:77:98:4f:0d:21:44:c5:10:79:68:
+                    39:57:08:31:02:cd:9b:d9:ab:b3:9d:74:de:0e:cc:
+                    16:c3:e4:17:f8:f0:83:e1:b1:9d:45:55:0a:74:79:
+                    2c:1f:b5:eb:25:67:2c:36:03:20:79:33:01:f0:c1:
+                    0e:8a:81:f9:e5:ed:8d:61:23:64:5d:38:da:8b:b3:
+                    5b:40:9c:8b:0f:c0:8f:f9:1d:96:9f:ed:e4:78:71:
+                    75:34:55:f2:b4:48:02:55:bd:e0:46:f1:ea:e5:8b:
+                    32:53
+                Exponent: 65537 (0x10001)
+        Attributes:
+            a0:00
+    Signature Algorithm: sha1WithRSAEncryption
+        1f:ce:17:35:ed:80:b6:70:d3:91:61:ab:bb:3f:f7:5b:05:e4:
+        f9:9f:82:5d:2e:11:b9:f0:b6:4a:d0:96:55:33:bd:e5:f5:7a:
+        70:16:da:53:57:e0:d4:26:92:91:42:db:9e:db:19:f5:5a:72:
+        26:ed:08:d9:87:a7:b2:e8:a4:e8:56:e5:c6:dc:0d:09:bb:55:
+        91:39:67:c0:ab:cd:a6:c9:88:f6:ff:8c:fd:50:9d:1e:a9:9d:
+        77:7e:25:e4:af:d6:46:df:97:c0:37:94:72:47:6d:ef:48:1f:
+        02:97:d6:2a:22:4c:eb:93:b2:af:11:30:30:0c:6d:90:8e:23:
+        07:a5:8f:db:3e:91:b7:44:8e:cd:1b:84:17:bb:9c:c4:0f:74:
+        22:fc:d1:30:e4:1e:f7:4c:ed:1c:8e:18:9e:25:a8:70:66:83:
+        f9:ab:da:a2:b7:d5:00:d7:fc:2b:1c:2d:61:cf:d5:de:d6:72:
+        34:51:b6:93:98:e0:1a:5a:5f:77:e0:77:64:7b:86:b4:6d:2b:
+        d4:67:64:82:ab:97:6f:32:2f:12:8a:ec:a4:15:e0:fe:89:fa:
+        06:f7:46:cf:b3:99:03:0c:ec:b4:76:4d:8b:a4:96:e6:43:f5:
+        0b:63:83:42:fe:d6:ec:94:ec:3a:29:bc:22:b2:62:86:04:81:
+        eb:53:71:0c
+-----BEGIN CERTIFICATE REQUEST-----
+MIICojCCAYoCAQAwXTERMA8GA1UEAxMIRTAwNjAwMzUxFTATBgNVBAsTDHRlbGVz
+ZXQucGx1czEUMBIGA1UEChMLVGVsZXNldCBsdGQxDjAMBgNVBAcTBURVQk5BMQsw
+CQYDVQQGEwJSVTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAONAXkYn
+z3XUj+jlac38B/x/iHs8gCsy3A2G/FBeIwrtpBd8WuCkYxiKkNDlOQgAeUCUWmWZ
+8/5I/5VHsJc1JXN40F4FmTqWaFbpCivnkkijO7ysTaxOjkUGQAFLACbT7bo0TaKV
+d2rH3XAoGLy19eGYMezYznzClAm13qts8dslamEuqIAfmR2B/lriEWlm+nEjZorr
+o/eaC5N3mE8NIUTFEHloOVcIMQLNm9mrs5103g7MFsPkF/jwg+GxnUVVCnR5LB+1
+6yVnLDYDIHkzAfDBDoqB+eXtjWEjZF042ouzW0Cciw/Aj/kdlp/t5HhxdTRV8rRI
+AlW94Ebx6uWLMlMCAwEAAaAAMA0GCSqGSIb3DQEBBQUAA4IBAQAfzhc17YC2cNOR
+Yau7P/dbBeT5n4JdLhG58LZK0JZVM73l9XpwFtpTV+DUJpKRQtue2xn1WnIm7QjZ
+h6ey6KToVuXG3A0Ju1WROWfAq82myYj2/4z9UJ0eqZ13fiXkr9ZG35fAN5RyR23v
+SB8Cl9YqIkzrk7KvETAwDG2QjiMHpY/bPpG3RI7NG4QXu5zED3Qi/NEw5B73TO0c
+jhieJahwZoP5q9qit9UA1/wrHC1hz9Xe1nI0UbaTmOAaWl934Hdke4a0bSvUZ2SC
+q5dvMi8SiuykFeD+ifoG90bPs5kDDOy0dk2LpJbmQ/ULY4NC/tbslOw6KbwismKG
+BIHrU3EM
+-----END CERTIFICATE REQUEST-----

@@ -1,0 +1,2 @@
+openssl req -subj "/CN=E0060035/OU=teleset.plus/O=Teleset ltd/L=DUBNA/C=RU" -newkey rsa:2048 -nodes -out req_2020.pem -keyout key_2020.pem
+openssl req -text -in req_2020.pem -out req_2020.txt

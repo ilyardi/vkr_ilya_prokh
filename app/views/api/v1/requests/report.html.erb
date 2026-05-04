@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8" />
+	<TITLE>Задача</TITLE>
+	<META NAME="AUTHOR" CONTENT="Vladislav" />
+	<%# <script src="http://172.20.17.99/templates_resources/jquery-3.1.1.min.js"></script> %>
+	<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
+	<%# <script>
+		(function($) {
+			$.fn.textfill = function(options) {
+				return this.each(function() {
+	        var maxFontSize = 32;
+	        var minFontSize = 6;
+	        var ourText = $('span:visible:first', this);
+	        var maxHeight = $(this).height();
+	        var maxWidth = $(this).width();
+	        var fontSize = parseInt(ourText.css('fontSize'));
+	        var textHeight = ourText.height();
+	        var textWidth = ourText.width();
+
+	        while((textHeight > maxHeight || textWidth > maxWidth) && fontSize > minFontSize && fontSize < maxFontSize ) {
+            // console.log('textWidth', textWidth, 'textHeight', textHeight, 'fontSize', fontSize);
+            // console.log('maxHeight', maxHeight, 'maxWidth', maxWidth, 'fontSize', fontSize);
+            ourText.css('font-size', fontSize);
+            textHeight = ourText.height();
+            textWidth = ourText.width();
+            fontSize = fontSize - 1;
+	        }
+ 				});
+			}
+		})(jQuery);
+
+		$(function(){
+			$('.input').textfill();
+		});
+	</script> %>
+
+	<STYLE TYPE="text/css">
+		@page {
+			size: 21cm 29.7cm;
+			margin: 0cm;
+		}
+		body {
+			font-family: "Arial", serif;
+			font-size: 14px;
+		}
+		.container {
+			position: relative;
+			/*border: 1px solid red;*/
+			width: 21cm;
+			margin: -0.5cm auto 0;
+			/* background-image: url(../templates_resources/app_bg.gif); */
+			background-image: url(/images/templates_docs/app_bg.gif);
+			background-size: 21cm 29.7cm;
+			background-repeat: no-repeat;
+			min-height: 29.7cm;
+		}
+		.input {
+			position: absolute;
+			/* background-color: #cddc39; */
+			height: .5cm;
+			line-height: .5cm;
+		}
+		#app_record_id {
+			left: 3.3cm;
+			top: 3.8cm;
+			width: 5.4cm;
+		}
+		#app_execute_start_day {
+			left: 11cm;
+			top: 3.75cm;
+			width: 1.3cm;
+			text-align: center;
+		}
+
+		#app_execute_start_month {
+			left: 12.7cm;
+			top: 3.75cm;
+			width: 4cm;
+			text-align: center;
+		}
+
+		#app_execute_start_year {
+			left: 17.3cm;
+			top: 3.75cm;
+			width: 0.7cm;
+			text-align: center;
+		}
+
+		#app_execute_start {
+			left: 2.7cm;
+			top: 18.35cm;
+			width: 7.3cm;
+		}
+		#app_execute_start_t {
+			left: 10.9cm;
+			top: 18.33cm;
+			width: 6.7cm;
+		}
+		#app_execute_fio {
+			left: 2.7cm;
+			top: 25.78cm;
+			width: 5.8cm;
+			background-color: #fff;
+		}
+		#app_execute_start_bottom {
+			left: 14.5cm;
+			top: 25.78cm;
+			width: 4cm;
+			background-color: #fff;
+		}
+
+		#app_last_name {
+			left: 4cm;
+			top: 7.45cm;
+			width: 3.2cm;
+		}
+		#app_first_name {
+			left: 8.7cm;
+			top: 7.45cm;
+			width: 3.6cm;
+		}
+		#app_middle_name {
+			left: 14.5cm;
+			top: 7.45cm;
+			width: 3.8cm;
+		}
+		#app_phone {
+			left: 4cm;
+			top: 9.59cm;
+			width: 6.7cm;
+		}
+		#app_type {
+			left: 2.7cm;
+			top: 13.9cm;
+			width: 15.6cm;
+		}
+		#app_task {
+			left: 2.7cm;
+			top: 14.75cm;
+			width: 15.6cm;
+		}
+		#app_address_street {
+			left: 3.7cm;
+			top: 8.85cm;
+			width: 7cm;
+		}
+		#app_address_building {
+			left: 12.1cm;
+			top: 8.85cm;
+			width: 0.6cm;
+		}
+		#app_address_enter {
+			left: 14.5cm;
+			top: 8.85cm;
+			width: 0.5cm;
+		}
+		#app_address_flat {
+            left: 17.5cm;
+			top: 8.85cm;
+			width: 0.9cm;
+		}
+		#app_address_floor {
+			left: 16.1cm;
+			top: 8.85cm;
+			width: 0.6cm;
+		}
+		#app_dogovor {
+			left: 2.7cm;
+			top: 6.14cm;
+			width: 9cm;
+		}
+		.page-break {
+      page-break-after: always;
+    }
+	</STYLE>
+</HEAD>
+<body>
+	<div class="container">
+
+		<div id="app_record_id" class="input"><span><%= @data[:request_number] %></span></div>
+		<div id="app_execute_start_day" class="input"><span><%= @data[:day] %></span></div>
+		<div id="app_execute_start_month" class="input"><span><%= @data[:month] %></span></div>
+		<div id="app_execute_start_year" class="input"><span><%= @data[:year] %></span></div>
+		<div id="app_dogovor" class="input"><span><%= @data[:agrm_number] || '' %></span></div>
+		<div id="app_last_name" class="input"><span><%= @data[:abonent_surname] || '' %></span></div>
+		<div id="app_first_name" class="input"><span><%= @data[:abonent_name] || '' %></span></div>
+		<div id="app_middle_name" class="input"><span><%= @data[:abonent_patronymic] || '' %></span></div>
+		<div id="app_phone" class="input"><span><%= @data[:abonent_phone] || '' %></span></div>
+		<div id="app_type" class="input"><span><%= @data[:request_subtype] %></span></div>
+		<div id="app_task" class="input"><span><%= @data[:request_desc] %></span></div>
+		<div id="app_address_street" class="input"><span><%= @data[:street] || '' %></span></div>
+		<div id="app_address_building" class="input"><span><%= @data[:building] || '' %></span></div>
+		<div id="app_address_enter" class="input"><span><%= @data[:entrance] || '' %></span></div>
+		<div id="app_address_flat" class="input"><span><%= @data[:flat] || '' %></span></div>
+		<div id="app_address_floor" class="input"><span><%= @data[:floor] || '' %></span></div>
+
+		<div id="app_execute_start" class="input"><span><%= @data[:day] %> <%= @data[:month] %> <%= @data[:year] %></span></div>
+		<div id="app_execute_start_t" class="input"><span><%= @data[:time] %></span></div>
+		<div id="app_execute_fio" class="input"><span><%= @data[:executor_user] %></span></div>
+		<div id="app_execute_start_bottom" class="input"><span><%= @data[:day] %> <%= @data[:month] %> <%= @data[:year] %></span></div>
+	</div>
+</body>
+</HTML>

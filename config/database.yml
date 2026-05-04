@@ -1,0 +1,42 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= Settings.db.user %>
+  password: <%= Settings.db.pass %>
+  host: <%= Settings.db.host %>
+  database: <%= Settings.db.name %>
+
+development:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
+
+test:
+  <<: *default
+  database: <%= Settings.db.name %>_test
+  database: <%= Settings.db.name %>
+
+lanbilling_prod:
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= Settings.lanbilling_db.user %>
+  password: <%= Settings.lanbilling_db.pass %>
+  host: <%= Settings.lanbilling_db.host %>
+  database: <%= Settings.lanbilling_db.name %>
+  port: <%= Settings.lanbilling_db.port %>
+  reconnect: true
+
+teledom_prod:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= Settings.teledom_db.user %>
+  password: <%= Settings.teledom_db.pass %>
+  host: <%= Settings.teledom_db.host %>
+  database: <%= Settings.teledom_db.name %>

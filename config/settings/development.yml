@@ -1,0 +1,7 @@
+sberbank_auto:
+  production: false
+  user: <%= ENV['SBER_USER'] || 'T50100060793-api' %>
+  pass: <%= ENV['SBER_PASSWORD'] || 'T50100060793' %>
+  approve_url: http://teleset.local:3000/site/payments/sberbank_auto/approved
+  cancel_url:  http://teleset.local:3000/site/payments/sberbank_auto/cancel
+  decline_url: http://teleset.local:3000/site/payments/sberbank_auto/decline

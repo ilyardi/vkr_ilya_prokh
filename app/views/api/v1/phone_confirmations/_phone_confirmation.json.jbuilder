@@ -1,0 +1,1 @@
+json.(phone_confirmation,:id, :phone, :code, :action, :expire_at, :created_at)

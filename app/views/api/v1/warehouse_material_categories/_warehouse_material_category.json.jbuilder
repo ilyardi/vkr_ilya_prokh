@@ -1,0 +1,1 @@
+json.(warehouse_material_category, :id, :name)

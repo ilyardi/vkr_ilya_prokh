@@ -1,0 +1,1 @@
+json.(address, :id, :street, :building, :flat, :confirmed, :agrm_id, :default)

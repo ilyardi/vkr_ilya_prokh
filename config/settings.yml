@@ -1,0 +1,126 @@
+threads: <%= ENV['RAILS_MAX_THREADS'] || 15 %>
+
+site_host: http://teleset.local
+crm_host: http://crm.teleset.local
+lk_host: http://lk.teleset.local:3002
+
+db:
+  host: <%= ENV['POSTGRES_HOST'] %>
+  name: <%= ENV['POSTGRES_DB'] %>
+  user: <%= ENV['POSTGRES_USER'] %>
+  pass: <%= ENV['POSTGRES_PASSWORD'] %>
+
+teledom_db:
+  host: <%= ENV['TELEDOM_HOST'] %>
+  name: <%= ENV['TELEDOM_DB'] %>
+  user: <%= ENV['TELEDOM_USER'] %>
+  pass: <%= ENV['TELEDOM_PASSWORD'] %>
+
+lanbilling:
+  ip:    <%= ENV['LANBILLING_IP'] %>
+  login: <%= ENV['LANBILLING_LOGIN'] %>
+  pass:  <%= ENV['LANBILLING_PASSWORD'] %>
+
+lanbilling_db:
+  host: <%= ENV['LBMYSQL_HOST'] %>
+  name: <%= ENV['LBMYSQL_DB'] %>
+  user: <%= ENV['LBMYSQL_USER'] %>
+  pass: <%= ENV['LBMYSQL_PASSWORD'] %>
+# LBMYSQL_USER: lbackend
+# LBMYSQL_PASSWORD: GHd83jskljh
+# LBMYSQL_HOST: 172.20.17.99
+# LBMYSQL_DB: billing
+
+asterisk:
+  host: <%= ENV.fetch('ASTERISK_HOST', '172.20.17.2') %>
+  port: <%= ENV.fetch('ASTERISK_PORT', 5038) %>
+  user: <%= ENV.fetch('ASTERISK_USER', 'lbackend') %>
+  pass: <%= ENV.fetch('ASTERISK_PASSWORD', 'asbncklpkl278djhsl') %>
+
+redis:
+  host: <%= ENV['REDIS_HOST'] %>
+  port: <%= ENV['REDIS_PORT'] %>
+
+orange_data:
+  url: <%= ENV['OD_URL'] %>
+  cert: config/certs/orange_data/5010050793.crt
+  private_key: config/certs/orange_data/orange_data_private.key
+  key: config/certs/orange_data/5010050793.key
+
+minbank:
+  merchant_id: <%= ENV['MB_MERCHANT_ID'] || "E0060035" %>
+  url: <%= ENV['MB_URL'] %>
+  cert: <%= ENV['MB_CERT'] || 'config/certs/minbank/2020/E0060035_156448.crt' %>
+  key: <%= ENV['MB_KEY'] || 'config/certs/minbank/2020/key_2020.pem' %>
+  approve_url: https://teleset.plus/api/payments/minbank/approved
+  cancel_url:  https://teleset.plus/api/payments/minbank/cancel
+  decline_url: https://teleset.plus/api/payments/minbank/decline
+
+sberbank:
+  production: false
+  user: <%= ENV['SBER_USER'] || 'T50100060793-api' %>
+  pass: <%= ENV['SBER_PASSWORD'] || 'T50100060793' %>
+  approve_url: https://teleset.plus/api/payments/sberbank/approved
+  cancel_url:  https://teleset.plus/api/payments/sberbank/cancel
+  decline_url: https://teleset.plus/api/payments/sberbank/decline
+
+yookassa:
+  production: false
+  url: "https://api.yookassa.ru/v3"
+  shop_id: <%= ENV['YOOKASSA_SHOP_ID'] || '383312' %>
+  api_key: <%= ENV['YOOKASSA_API_KEY'] || 'test_tjzytmLgXmojdvwnzNaJ8thvLSYvBnkzLf86lEY0CpY' %>
+  approve_url: https://lk.teleset.plus
+
+fdoc:
+  production: false
+  url: <%= ENV['FDOC_URL'] || 'https://demo.fdoc.ru' %>
+  api_key: <%= ENV['FDOC_API_KEY'] || 'wALkfgPdaAfdxmL2gbVc' %>
+  app_login: <%= ENV['FDOC_APP_LOGIN'] || 'api_demo' %>
+  app_pass: <%= ENV['FDOC_APP_PASSWORD'] || 'a35AsON7ScA4' %>
+  user: <%= ENV['FDOC_USER'] || 'qdrow91' %>
+  pass: <%= ENV['FDOC_PASSWORD'] || 'f5KFESNa6d49' %>
+  app: <%= ENV['FDOC_APP'] || '5010050793' %>
+  corp_id: <%= ENV['FDOC_CORP_ID'] || '5010050793' %>
+
+payments:
+  allow_pay: <%= ENV['ALLOW_PAY'] || true %>
+  allow_auto_pay: <%= ENV['ALLOW_AUTO_PAY'] || true %>
+
+sberbank_sbp:
+  # url: https://mc.api.sberbank.ru
+  url: 'https://api.sberbank.ru:8443'
+  client_id: 0cd66ee7-f400-4bee-96a0-410fcbb2ebd5
+  client_secret: a3f22c9b-741c-4dea-b6ec-a8f422009a44
+  cert_file: config/certs/sberbank_sbp/certificate_0cd66ee7-f400-4bee-96a0-410fcbb2ebd5.p12
+  cert_pass: v1bWNunGcs6IJFZ9szSC
+  terminal_id: 27567311
+  partner_id: 851000322420
+  # id_qr: 27567311
+
+sberbank_auto:
+  production: false
+  user: <%= ENV['SBER_USER'] || 'T50100060793-api' %>
+  pass: <%= ENV['SBER_PASSWORD'] || 'T50100060793' %>
+  approve_url: https://teleset.plus/api/payments/sberbank_auto/approved
+  cancel_url:  https://teleset.plus/api/payments/sberbank_auto/cancel
+  decline_url: https://teleset.plus/api/payments/sberbank_auto/decline
+
+intercom:
+  secret: J3-XcOjZcHC44qI9T27KyRmblB5EbSUG7VW4Djle
+
+iqsms:
+  url:   <%= ENV['SMSGATE_URL'] %>
+  login: <%= ENV['SMSGATE_LOGIN'] %>
+  pass:  <%= ENV['SMSGATE_PASSWORD'] %>
+# TESTING_PAYMENT: 'false'
+# TESTING_AGREEMENTS: '9991390,9993631,3620020,9997040,6102550,4131290,2200495'
+# MB_URL: https://mpi.minbank.ru:5443
+
+auth_call:
+  url:   <%= ENV.fetch('CALLGATE_URL', 'https://vp.voicepassword.ru') %>
+  api_key: <%= ENV.fetch('CALLGATE_APIKEY', '583fa32deba9cf61dc8e874f80bdb826') %>
+
+bras:
+  host: <%= ENV['BRAS_HOST'] || '172.20.17.121,172.20.17.102' %>
+  user: <%= ENV['BRAS_USER'] || 'rdp' %>
+  pass: <%= ENV['BRAS_PASS'] || 'Dubna2020' %>

@@ -1,0 +1,27 @@
+.block {
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.block p {
+  text-align: center;
+  animation: text 16s infinite linear;
+  /* color: rgb(43, 71, 139); */
+  color: white;
+  font-size: 28px;
+  /* padding-left: 100%; */
+  white-space: nowrap;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* @keyframes text {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+} */

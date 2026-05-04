@@ -1,0 +1,37 @@
+version: '3.5'
+services:
+  web:
+    environment:
+      # POSTGRES_USER: lbackend
+      # POSTGRES_DB: lbackend
+      # POSTGRES_PASSWORD: hu8sdjh389dhj
+      # POSTGRES_HOST: 192.168.1.241 #home
+      # POSTGRES_HOST: 192.168.0.26 #home
+      # POSTGRES_HOST: 172.20.17.219 #Teleset Lan
+      # POSTGRES_HOST: 10.205.106.82 #mobile
+      # POSTGRES_HOST: 192.168.88.215 #office Vlad
+      # POSTGRES_HOST: 192.168.10.61 #Wi-fi teleset
+      # LBMYSQL_HOST: 192.168.1.240 #home
+      # LBMYSQL_HOST: 192.168.88.215 #office Vlad
+      # LBMYSQL_HOST: 192.168.10.61 #Wi-fi teleset
+      # LBMYSQL_HOST: 192.168.13.82 #mobile
+      # LBMYSQL_HOST: 172.20.17.229 #localTeleset
+      LBMYSQL_HOST: 172.20.17.99
+      LBMYSQL_USER: devreadonly
+      LBMYSQL_PASSWORD: ZNUNNPcifmqFJ95CK1eGOlxk8FKUniYtLBae$$
+      # Новый пароль на devreadonly
+      # LBMYSQL_PASSWORD: Z3srwHQDv9iplfav5xCIJ
+      LBMYSQL_DB: billing
+      LBMYSQL_PORT: 3307
+      SMSGATE_URL: http://api.iqsms.ru/
+      SMSGATE_LOGIN: z1409332259494
+      SMSGATE_PASSWORD: 636745
+      FIREBASE_PROJECT_ID: "teleset-plus"
+      GOOGLE_ACCOUNT_TYPE: "service_account"
+      GOOGLE_CLIENT_ID: "105711971465853807695"
+      GOOGLE_CLIENT_EMAIL: "firebase-adminsdk-x8qfu@teleset-plus.iam.gserviceaccount.com"
+      GOOGLE_PRIVATE_KEY: '-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCqbaA2ndvKtRuk\nsDO/xdk5V2jFAwa51hUtsfkqYLNq6cnQe05tydUZ5wv/nApTOf61r2ilNRp0ecBH\nJF5SQSCIsMbtzzH7LeNgkdxNFWxydQNepy+Fuv9a6udMiKKpoj3Pd+o0LDYKeXt2\nQvEQ/3qTGduqjR+Thb9qNWF9lfsh7j3JGmcqkEOttM2D3lBitshXNxYfQffmIrt4\n+kpgFMLCAGGi2LVRn7YS8Yv+vW1knoG+EKrv9NbeCU7fYKM7qu/EG90OtK6fCp1A\nEHYGi/uF5moS9gRHnnmlzr6k82l4xSst17xGF6Uq5KSqqvB/wIcvmmV5yimyFMTr\njKJ+uJOTAgMBAAECggEAKNeLqPsMlJfxT3bAeAk4ZOL7Ixd2EavpuGEptoulA46S\nRCmAopPXQ1VYzUE+QjKoRS8Lk2fV9qrEtufSyMB9xPQkQBJCxpB5KIfb9QcYzZcY\nHyNOoqwtDMM1eeRWovNT/7ebgzRDISB6w10Ie0vWOpFcUJNwSUConhG70sZSAA+8\nWEqiUYxFo9sNQUxsN5Sfzl5Vv8yeq7dMxaiiiEjh4DZVwV+gPerjc7H7gTEE/g5D\nc9ydGasz1R1wb+KWIDLlJcCPzP+/cAOYGgSYNFneI/ON7Of31aQRob4SIJVIiRmG\nHraPpG6c92wqqMI4/Wr0WNuVbv4ZFR9fUHnD4777OQKBgQC1ceXbVzwDrGLp5PIO\nl+noWv8psBLLBqyBiRlFwZHrLdT72xdnvwhSfXFNqIJqW4AJtAk+IpiJ28fbbbV8\nYe/TIJ5oPcsBRYmCeAcUGRATBMYL2FUfnzwU6Dk0MzNPSa2WAnLzQkLCiRSj4uqM\n0QIv15t22/yUC1Fqmua9DdZtCQKBgQDwdONQMFwpHir0aYmTj6qZDDLFViZK0ZdK\nheGmj6vbxkW4/yT9+INmLrbN+ETFx2a8I30SL44bAu+TOUlRoBG5e7LDwY6xA0sA\nwa9BjoTXPMsnUJxdsy9HxTWRggTvcnvMv6wLCc89LZlt4rz2WyZW0z/kHjKku8ZJ\nru8oraj+uwKBgQCYXoRzNId+YjZSSmOHI8VWzYu3e1fczMbypKnnbU1XXI6dzXeT\nNNYNR7BtUZPrMtmLzHdyiWTlZ/4mY7PjNu9Jsfu0eCfQ8o8uVBNFqmJYRkr1yX56\nZqLyv6zCDDkLXUj7TyUu6LbdXHZLxhPHmwEmIf44yzYJMJP3XQtlOYiW2QKBgFZt\nbRbxiu6sjTv0gyKqzOLd45HSeUkDNKHwpT68/USta3onGyC+JlygBczao72DAoY1\nK0tSFH3Y/Euql5PjOPu2XnbGJ4ewa1EGTPv/QfgrPcoPy2RSd3gQhkSauzNlruHV\nMv10tSyEK1W33bue35TtsVVJFWLoq0jou8WfRdLpAoGATEb4ecF8zz7mktuQxFJI\nSks5uRtnMUejJcA7Q7CK3d8elFMpSJmk5Odk265keW63ofXGP1lgLJkTD/k+O5UU\nIncWn4Dm6koNlAVSSETqXkVpIjAM4ETnJ3ltF50zmK+yJ7uySv+TOiT22A6GUwMo\nVEpq6AVOt8eM+HLouvPbvUo=\n-----END PRIVATE KEY-----\n'
+    volumes:
+      # - .:/var/www/lbackend/current:cached
+      - ./tmp/root:/root
+# ssh -v -N -L 3306:127.0.0.1:3306 lb

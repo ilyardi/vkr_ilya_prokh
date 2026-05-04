@@ -1,0 +1,11 @@
+.state_list li:hover {
+    background-color: aliceblue;
+}
+
+.state_table tr:hover {
+    background-color: aliceblue;
+}
+
+.selected_item {
+    background-color: aliceblue;
+}

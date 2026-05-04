@@ -1,0 +1,11 @@
+development:
+  adapter: any_cable
+  url: <%= "redis://#{Settings.redis.host}:#{Settings.redis.port}/1" %>
+
+test:
+  adapter: async
+
+production:
+  adapter: any_cable
+  url: <%= "redis://#{Settings.redis.host}:#{Settings.redis.port}/1" %>
+  channel_prefix: lbackend_production

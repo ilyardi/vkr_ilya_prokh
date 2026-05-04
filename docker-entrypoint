@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+
+# update default values of PAM environment variables (used by CRON scripts)
+env | while read -r line; do  # read STDIN by line
+    # split LINE by "="
+    IFS="=" read var val <<< ${line}
+    # remove existing definition of environment variable, ignoring exit code
+    sed --in-place "/^${var}[[:blank:]=]/d" /etc/security/pam_env.conf || true
+    # append new default value of environment variable
+    echo "${var} DEFAULT=\"${val}\"" >> /etc/security/pam_env.conf
+done
+
+# start cron
+# service cron start
+
+# trap SIGINT and SIGTERM signals and gracefully exit
+# trap "service cron stop; kill \$!; exit" SIGINT SIGTERM
+
+exec "$@"

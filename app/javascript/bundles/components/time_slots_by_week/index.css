@@ -1,0 +1,7 @@
+.hovered_row:hover {
+    background-color: thistle
+}
+
+.hovered_cell:hover {
+    background-color: thistle !important
+}

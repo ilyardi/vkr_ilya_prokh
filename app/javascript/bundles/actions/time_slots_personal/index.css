@@ -1,0 +1,160 @@
+.time_slots_mobile span,
+.time_slots_mobile label,
+.time_slots_mobile p,
+.mobile_modal span,
+.mobile_modal label {
+    font-size: 16px;
+}
+
+.date-switcher {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: aquamarine;
+}
+
+.date-switcher span {
+    font-size: 24px;
+}
+
+.date-switcher>button {
+    height: auto;
+    background-color: inherit !important;
+    width: 15%;
+    border: none;
+}
+
+.date-switcher>button:first-of-type {
+    margin-left: 10px;
+}
+
+.date-switcher>button:first-of-type {
+    margin-right: 10px;
+}
+
+.time_slots_item {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.time_slots_item_time {
+    min-width: 50px;
+    height: 60px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.time_slots_item_content {
+    padding-left: 20px;
+    border-left: 2px solid black;
+}
+
+.request-card .ant-card-body {
+    padding: 10px;
+}
+
+/* .request-card span:last-child {
+    display: block;
+} */
+
+.mobile_modal {
+    width: 90% !important;
+}
+
+.mobile_modal label {
+    font-weight: bold;
+}
+
+.mobile_modal .ant-comment-content-author span {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.mobile_modal .ant-comment-content {
+    font-size: 16px;
+}
+
+/* self classes start*/
+
+.slotsContener {
+    display: flex;
+}
+
+.timeColomn {
+    width: 15%;
+}
+
+.times_cell {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.requestColumn {
+    width: 85%;
+}
+
+.request-card {
+    border-radius: 15px;
+    border-width: 2px;
+    text-align: left;
+    background-color: bisque;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.request-card p {
+    margin: 0;
+}
+
+.intervals {
+    /* border-left: 1px solid black; */
+    width: 100%;
+}
+
+.intervals>div {
+    /* border-bottom: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.intervals>div:last-child {
+    border-bottom: none;
+}
+
+/* self classes end */
+
+@media screen and (max-width: 900px) {
+    .request-card span:not(:last-child) {
+        display: block;
+    }
+
+    .mobile_modal .ant-row {
+        flex-direction: column !important;
+    }
+
+    .mobile_modal .ant-row>.ant-col {
+        max-width: 100% !important;
+    }
+
+    .mobile_modal .ant-form-item-label,
+    .mobile_modal .ant-form-item-control {
+        padding: 0 0 8px;
+        line-height: 1.5715;
+        white-space: initial;
+        text-align: left;
+        flex: 0 0 100%;
+        max-width: 100%
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    .mobile_modal {
+        width: 100% !important;
+    }
+}

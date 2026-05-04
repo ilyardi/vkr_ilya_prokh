@@ -1,0 +1,1 @@
+json.search_templates @search_templates

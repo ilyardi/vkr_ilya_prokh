@@ -1,0 +1,1 @@
+json.(tarif, :tar_id, :descr)

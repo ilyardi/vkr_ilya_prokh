@@ -1,0 +1,5 @@
+<%- headers = ['Дата','Документ', 'Дебит', 'Кредит'] -%>
+<%= CSV.generate_line headers -%>
+<%- @result.each do |a| -%>
+<%= raw CSV.generate_line(a) -%>
+<%- end -%>
